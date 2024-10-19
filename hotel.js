@@ -1,4 +1,4 @@
-export const hotels = [
+const hotels = [
   {
     id: 1,
     name: 'Romantic Getaway',
@@ -200,3 +200,4 @@ export const hotels = [
     country: 'Australia',
   },
 ];
+module.exports = { hotels }

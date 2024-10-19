@@ -12,8 +12,34 @@ app.use(express.static('static'));
 
 const hotelSortRoute = express.Router()
 
-hotelSortRoute.get('/price',(req,res)=>{
-  
+hotelSortRoute.get('/pricing', (req, res) => {
+  let priceParam = req.query.price
+  let arr = [...hotels]
+
+  if (priceParam == "high-to-low") {
+    arr.sort((a, b) => b.price - a.price)
+  }
+  else {
+    arr.sort((a, b) => a.price - b.price)
+  }
+
+  res.json({ "hotels": arr })
+
+})
+
+hotelSortRoute.get('/rating', (req, res) => {
+  let ratingParam = req.query.rating
+  let arr = [...hotels]
+
+  if (ratingParam == "high-to-low") {
+    arr.sort((a, b) => b.rating - a.rating)
+  }
+  else {
+    arr.sort((a, b) => a.rating - b.rating)
+  }
+
+  res.json({ "hotels": arr })
+
 })
 
 
