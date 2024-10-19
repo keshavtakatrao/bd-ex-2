@@ -9,6 +9,14 @@ const port = 3010;
 app.use(cors)
 app.use(express.static('static'));
 
+
+const hotelSortRoute = express.Router()
+
+hotelSortRoute.get('/price',(req,res)=>{
+  
+})
+
+
 app.get('/', (req, res) => {
   res.sendFile(resolve(__dirname, 'pages/index.html'));
 });
