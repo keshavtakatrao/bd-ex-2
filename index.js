@@ -17,17 +17,6 @@ hotelRoute.get('/', (req, res) => {
   res.json({ "hotels": hotels });
 });
 
-hotelRoute.get('/:id', (req, res) => {
-  const hotelId = req.params.id;
-  const hotel = hotels.find(h => h.id === parseInt(hotelId));
-
-  if (hotel) {
-    res.json({ "hotel": hotel });
-  } else {
-    res.status(404).json({ "error": "Hotel not found" });
-  }
-});
-
 hotelRoute.use('/sort', hotelSortRoute);
 hotelRoute.use('/filter', hotelFilterRoute)
 app.use('/hotels', hotelRoute);
